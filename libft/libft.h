@@ -8,7 +8,6 @@
 typedef struct		s_list
 {
 	void			*content;
-	size_t			content_size;
 	struct s_list	*next;
 }					t_list;
 
@@ -107,6 +106,7 @@ void			ft_putendl_fd(char const *c, int fd); // REQ TEST
 
 // list
 
+t_list 			*ft_lstnew(void *content);
 
 // other
 

@@ -42,12 +42,3 @@ char	*ft_itoa(int n)
 	number[len] = '\0';
 	return (number);
 }
-
-
-// int	main(void)
-// {
-// 	char *str;
-
-// 	str = ft_itoa(-1234567);
-// 	printf("Is this number correct...:%s\n", str);
-// }

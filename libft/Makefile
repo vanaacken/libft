@@ -8,7 +8,9 @@ CFLAGS	=	-Wall -Werror -Wextra -c
 OPTIONS = 	ar rc
 RM		=	rm -f
 
-.PHONY: all clean fclean re
+${SRCS} = ${filter-out test.c, ${SRCS}}
+
+.PHONY: all clean fclean re bonus
 
 all:		${NAME}
 
@@ -23,3 +25,9 @@ fclean: 	clean
 			${RM} ${NAME}
 
 re:			fclean all
+
+bonus:
+
+
+run: 
+

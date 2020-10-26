@@ -1,7 +1,7 @@
 #include "libft.h"
 #include <stdio.h>
 
-unsigned int	count_words(char const *s, char c)
+static unsigned int	count_words(char const *s, char c)
 {
 	unsigned int count;
 	unsigned int check;
@@ -24,12 +24,22 @@ unsigned int	count_words(char const *s, char c)
 	return (count);
 }
 
-char		**ft_split(char const *s, char c)
+char	*make_substring(const char *s, const char *sp, unsigned int i, char c)
+{
+	unsigned int len;
+
+	len = 0;
+	while (s[i + len] != c)
+		len++;
+	sp = ft_substr(s, i, len);
+	return ((char *)sp);
+}
+
+char			**ft_split(char const *s, char c)
 {
 	unsigned int	count;
 	char			**split;
 	unsigned int	i;
-	unsigned int	len;
 	unsigned int	j;
 
 	i = 0;
@@ -40,13 +50,10 @@ char		**ft_split(char const *s, char c)
 	{
 		if (s[i] != c)
 		{
-			len = 0;
-			while (s[i + len] != c)
-				len++;
-			split[j] = ft_substr(s, i, len);
+			split[j] = make_substring(s, split[j], i, c);
+			i += ft_strlen(split[j]);
 			j++;
 			count--;
-			i += len;
 		}
 		else
 			i++;
