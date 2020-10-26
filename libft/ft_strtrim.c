@@ -10,34 +10,64 @@ size_t	ft_strlen(char *str)
 	return (i);
 }
 
-char *ft_strtrim(char const *s)
+int		ft_isset(char c, char *set)
+{
+	while (*set)
+	{
+		if (*set == c)
+			return (1);
+		set++;
+	}
+	return (0);
+}
+
+char *ft_substr(char const *s, unsigned int start, size_t len)
+{
+	char *str;
+	size_t i;
+
+	i = 0;
+	str = (char *)malloc(sizeof(char) * (len + 1));
+	while (len > i && s[start])
+	{
+		str[i] = s[start];
+		i++;
+		start++;
+	}
+	str[i] = '\0';
+	return (str);
+}
+
+char *ft_strtrim(char const *s1, char const *set)
 {
 	unsigned int i;
-	unsigned int len;
 	unsigned int start;
+	size_t len;
 	char *new;
 
-	len = ft_strlen((char *)s);
-
-	start = 0;
-	while (s[start] == ' ' || s[start] == '\t' || s[start] == '\n')
-		start++;
+	len = ft_strlen((char *)s1);
 	i = 0;
-	while (s[len - i - 1] == ' ' || s[len - i - 1] == '\t' || s[len - i - 1] == '\n')
+	while (ft_isset(s1[i], (char *)set) == 1)
 		i++;
-	new = (char *)malloc(sizeof(char) * (len - start - i));
-	new = (char *)s + start;
+	start = i;
+	i = 0;
+	while (ft_isset(s1[len - i - 1], (char *)set) == 1)
+		i++;
+	new = ft_substr(s1, start, len - i - start);
 	return (new);
 }
-#include <stdio.h>
+
+
 int	main(void)
 {
-	char str[52] = "        GeeksForGeeks is for programming geeks.\n";
-	char *new;
-
-	new = ft_strtrim((char const *) str);
-	printf("%s\n", str);
-	printf("%s\n",new);
-	free (new);
-	return (0);
+	char str[32] = "Niels is testing his code here";
+	char *trim;
+	char set[5];
+	set[0] = 'h';
+	set[1] = 'i';
+	set[2] = 'e';
+	set[3] = 'r';
+	set[4] = 'N';
+	trim = ft_strtrim(str, set);
+	printf("%s\n%s\n",str,trim);
 }
