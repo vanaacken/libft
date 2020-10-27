@@ -14,7 +14,7 @@ static unsigned int	count_words(char const *s, char c)
 	{
 		if (s[i] == c)
 			check = 0;
-		else if (s[1] != c && check == 0)
+		else if (s[i] != c && check == 0)
 		{
 			check = 1;
 			count += 1;
@@ -29,7 +29,7 @@ char	*make_substring(const char *s, const char *sp, unsigned int i, char c)
 	unsigned int len;
 
 	len = 0;
-	while (s[i + len] != c)
+	while (s[i + len] != c && s[i + len])
 		len++;
 	sp = ft_substr(s, i, len);
 	return ((char *)sp);
@@ -45,12 +45,18 @@ char			**ft_split(char const *s, char c)
 	i = 0;
 	j = 0;
 	count = count_words(s, c);
-	split = (char **)malloc(sizeof(char *) * count);
+	if (!(split = (char **)malloc(sizeof(char *) * (count + 1))))
+		return (NULL);
 	while (s[i] != '\0' && count > 0)
 	{
 		if (s[i] != c)
 		{
 			split[j] = make_substring(s, split[j], i, c);
+			if (!split[j])
+			{
+				free (split);
+				return (NULL);
+			}
 			i += ft_strlen(split[j]);
 			j++;
 			count--;
@@ -62,18 +68,18 @@ char			**ft_split(char const *s, char c)
 }
 
 
-int main(void)
-{
-	char **split;
-	char str[22] = "Split is mijn biatch!";
-	split = ft_split(str, ' ');
-	int i;
-	i = 0;
-	while (i < 4)
-	{
-		printf("%s\n", split[i]);
-		i++;
-	}
-	free(split);
-	return (0);
-}
+// int main(void)
+// {
+// 	char **split;
+// 	char str[22] = "Split is mijn biatch!";
+// 	split = ft_split(str, ' ');
+// 	int i;
+// 	i = 0;
+// 	while (i < 4)
+// 	{
+// 		printf("%s\n", split[i]);
+// 		i++;
+// 	}
+// 	free(split);
+// 	return (0);
+// }

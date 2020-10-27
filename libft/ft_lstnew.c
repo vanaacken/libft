@@ -9,12 +9,12 @@ t_list	*ft_lstnew(void *content)
 	list->next	= NULL;
 	return (list);
 }
-#include <stdio.h>
-int main(void)
-{
-	char str[] = "I am a god!";
-	t_list *list;
-	list = ft_lstnew((void *)str);
-	printf("\n%s\n", list->content);
-	return (0);
-}
+// #include <stdio.h>
+// int main(void)
+// {
+// 	char str[] = "I am a god!";
+// 	t_list *list;
+// 	list = ft_lstnew((void *)str);
+// 	printf("\n%s\n", list->content);
+// 	return (0);
+// }

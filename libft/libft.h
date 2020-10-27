@@ -3,7 +3,6 @@
 
 #include <stdlib.h>
 #include <unistd.h>
-#include <string.h>
 
 typedef struct		s_list
 {
@@ -26,6 +25,8 @@ int				ft_memcmp(const void *s1, const void *s2, size_t n); // REQ TEST
 void			*ft_memalloc(size_t size); // TEST
 
 void			ft_memdel(void **ap); // TEST
+
+void 			*ft_memccpy(void *dst, const void *src, int c, size_t n);
 
 
 // str
@@ -70,6 +71,12 @@ char			*ft_strjoin(char const *s1, char const *s2); // REQ BUILD
 
 char			*ft_strtrim(char const *s1, char const *set); // REQ BUILD
 
+char 			*ft_strrchr(const char *s, int c);
+
+char 			*ft_strchr(const char *s, int c);
+
+char			*ft_strnstr(const char *haystack, const char *needle, size_t len);
+
 // is
 
 int				ft_isalpha(int c); // REQ TEST
@@ -113,7 +120,7 @@ t_list 			*ft_lstnew(void *content);
 
 void			ft_bzero(void *s, size_t n); // REQ TEST
 
-void			*calloc(size_t count, size_t size); // REQ TEST
+void			*ft_calloc(size_t count, size_t size); // REQ TEST
 
 int				ft_atoi(char *str); // REQ TEST
 

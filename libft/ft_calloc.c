@@ -6,17 +6,24 @@
 /*   By: nvan-aac <nvan-aac@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/26 10:44:02 by nvan-aac      #+#    #+#                 */
-/*   Updated: 2020/10/26 13:11:29 by nvan-aac      ########   odam.nl         */
+/*   Updated: 2020/10/27 10:34:02 by niels         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void*calloc(size_t count, size_t size)
+void *ft_calloc(size_t count, size_t size)
 {
-    void *new;
-
-    new = malloc(size * count);
-    bzero(new, size);
+    int *new;
+    size_t i;
+    
+    if (!(new = malloc(size * count)))
+        return (NULL);
+    i = 0;
+    while (i < size)
+    {
+        new[i] = 0;
+        i++;
+    }
     return (new);
 }

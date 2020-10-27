@@ -3,5 +3,8 @@
 void	ft_putstr_fd(char const *c, int fd)
 {
 	while (*c)
-		write(fd, c, sizeof(*c));
+	{
+		ft_putchar_fd(*c, fd);
+		c++;
+	}
 }

@@ -7,17 +7,14 @@ size_t	ft_strlcat(char *dest, char *src, size_t size)
 
 	i = 0;
 	j = 0;
-	while (dest[i] != '\0')
+	while (dest[i] && i < size)
 		i++;
-	while (src[j] != '\0' && j < size)
+	while (src[j] && i + j + 1 < size)
 	{
-		dest[i] = src[j];
-		i++;
+		dest[i + j] = src[j];
 		j++;
 	}
-	dest[i] = '\0';
-	i = 0;
-	while (dest[i] != '\0')
-		i++;
-	return (i);
+	 if(i < size)
+	 	dest[i + j] = '\0';
+	return (i + ft_strlen(src));
 }

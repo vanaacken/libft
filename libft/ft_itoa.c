@@ -32,6 +32,10 @@ char	*ft_itoa(int n)
 		n = -n;
 	}
 	i = 0;
+	if (n == 0)
+		return (ft_strdup("0"));
+	if (n == -2147483648)
+		return(ft_strdup("-2147483648"));
 	while (n > 9)
 	{
 		number[len - i - 1] = n % 10 + 48;

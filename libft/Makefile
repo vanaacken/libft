@@ -8,15 +8,14 @@ CFLAGS	=	-Wall -Werror -Wextra -c
 OPTIONS = 	ar rc
 RM		=	rm -f
 
-${SRCS} = ${filter-out test.c, ${SRCS}}
 
-.PHONY: all clean fclean re bonus
+.PHONY: all clean fclean re
 
 all:		${NAME}
 
 ${NAME}:
 			${CC} ${CFLAGS} ${SRCS} 
-			${OPTIONS} ${NAME} ${OBJS} 
+			${OPTIONS} ${NAME} ${OBJS}
 
 clean:
 			${RM} ${OBJS}
@@ -26,8 +25,4 @@ fclean: 	clean
 
 re:			fclean all
 
-bonus:
-
-
 run: 
-

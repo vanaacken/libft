@@ -2,6 +2,10 @@
 
 void	ft_putendl(char const *c)
 {
-	ft_putstr(c);
+	while (*c)
+	{
+		ft_putchar(*c);
+		c++;
+	}
 	ft_putchar('\n');
 }

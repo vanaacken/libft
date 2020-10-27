@@ -19,19 +19,15 @@ char 		*ft_substr(char const *s, unsigned int start, size_t len)
 
 char *ft_strtrim(char const *s1, char const *set)
 {
-	unsigned int i;
-	unsigned int start;
 	size_t len;
 	char *new;
-
+	if (!s1 || !set)
+		return (NULL);
+	while (ft_strchr(set, *s1) && *s1)
+		s1++;
 	len = ft_strlen((char *)s1);
-	i = 0;
-	while (ft_isset(s1[i], (char *)set) == 1)
-		i++;
-	start = i;
-	i = 0;
-	while (ft_isset(s1[len - i - 1], (char *)set) == 1)
-		i++;
-	new = ft_substr(s1, start, len - i - start);
+	while (len && ft_strchr(set, s1[len]))
+		len--;
+	new = ft_substr((char *)s1, 0, len + 1);
 	return (new);
 }
