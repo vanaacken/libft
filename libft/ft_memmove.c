@@ -6,7 +6,7 @@
 /*   By: niels <niels@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/27 22:49:58 by niels         #+#    #+#                 */
-/*   Updated: 2020/10/28 10:29:41 by niels         ########   odam.nl         */
+/*   Updated: 2020/10/28 11:03:33 by niels         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 {
 	unsigned int i;
 
+	if (!dst && !src)
+		return (NULL);
 	if (dst > src)
 	{
 		while (len > 0)

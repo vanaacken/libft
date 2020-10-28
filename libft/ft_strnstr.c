@@ -6,7 +6,7 @@
 /*   By: niels <niels@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/27 22:53:51 by niels         #+#    #+#                 */
-/*   Updated: 2020/10/27 23:26:38 by niels         ########   odam.nl         */
+/*   Updated: 2020/10/28 12:30:20 by niels         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ char	*ft_strnstr(const char *hay, const char *n, size_t len)
 	unsigned int j;
 
 	i = 0;
-	if (len == 0)
-		return (NULL);
 	if (!*n)
 		return ((char *)hay);
 	while (hay[i] && i < len)

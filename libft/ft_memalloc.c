@@ -6,7 +6,7 @@
 /*   By: niels <niels@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/27 22:48:06 by niels         #+#    #+#                 */
-/*   Updated: 2020/10/27 22:48:21 by niels         ########   odam.nl         */
+/*   Updated: 2020/10/28 11:52:07 by niels         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ void	*ft_memalloc(size_t size)
 
 	if (!size)
 		return (0);
-	dst = (char *)malloc(size);
+	if (!(dst = (char *)malloc(size)))
+		return (NULL);
 	ft_bzero(dst, size);
 	return (dst);
 }
