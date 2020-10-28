@@ -6,7 +6,7 @@
 /*   By: niels <niels@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/27 22:49:40 by niels         #+#    #+#                 */
-/*   Updated: 2020/10/27 22:49:40 by niels         ########   odam.nl         */
+/*   Updated: 2020/10/28 10:23:49 by niels         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,6 @@
 
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	int i;
-
-	i = 0;
-	while (n - i > 0)
-	{
-		((char *)dst)[i] = ((char *)src)[i];
-		i++;
-	}
+	ft_memmove(dst, src, n);
 	return (dst);
 }
