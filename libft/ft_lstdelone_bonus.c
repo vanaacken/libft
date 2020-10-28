@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_putendl_fd.c                                    :+:    :+:            */
+/*   ft_lstdelone_bonus.c                               :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: niels <niels@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/10/27 22:50:42 by niels         #+#    #+#                 */
-/*   Updated: 2020/10/27 22:50:43 by niels         ########   odam.nl         */
+/*   Created: 2020/10/27 22:45:03 by niels         #+#    #+#                 */
+/*   Updated: 2020/10/28 09:32:09 by niels         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft_bonus.h"
 
-void	ft_putendl_fd(char const *c, int fd)
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	ft_putstr_fd(c, fd);
-	ft_putchar_fd('\n', fd);
+	del(lst->content);
+	free(lst);
 }

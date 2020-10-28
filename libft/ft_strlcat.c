@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   ft_strlcat.c                                       :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: niels <niels@student.codam.nl>               +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2020/10/27 22:52:42 by niels         #+#    #+#                 */
+/*   Updated: 2020/10/27 23:20:05 by niels         ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 size_t	ft_strlcat(char *dest, char *src, size_t size)
@@ -14,7 +26,7 @@ size_t	ft_strlcat(char *dest, char *src, size_t size)
 		dest[i + j] = src[j];
 		j++;
 	}
-	 if(i < size)
-	 	dest[i + j] = '\0';
+	if (i < size)
+		dest[i + j] = '\0';
 	return (i + ft_strlen(src));
 }

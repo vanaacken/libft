@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   ft_memchr.c                                        :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: niels <niels@student.codam.nl>               +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2020/10/27 22:48:48 by niels         #+#    #+#                 */
+/*   Updated: 2020/10/27 23:21:17 by niels         ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 void	*ft_memchr(const void *s, int c, size_t n)
@@ -7,8 +19,8 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	i = 0;
 	while (i < n)
 	{
-		if(((unsigned char *)s)[i] == (unsigned char)c)
-			return(((void *)&((unsigned char *)s)[i]));
+		if (((unsigned char *)s)[i] == (unsigned char)c)
+			return (((void *)&((unsigned char *)s)[i]));
 		i++;
 	}
 	return (NULL);

@@ -1,26 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   ft_strtrim.c                                       :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: niels <niels@student.codam.nl>               +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2020/10/27 22:54:39 by niels         #+#    #+#                 */
+/*   Updated: 2020/10/27 23:42:10 by niels         ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-char 		*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	char *str;
-	size_t i;
+	size_t	len;
+	char	*new;
 
-	i = 0;
-	str = (char *)malloc(sizeof(char) * (len + 1));
-	while (len > i && s[start])
-	{
-		str[i] = s[start];
-		i++;
-		start++;
-	}
-	str[i] = '\0';
-	return (str);
-}
-
-char *ft_strtrim(char const *s1, char const *set)
-{
-	size_t len;
-	char *new;
 	if (!s1 || !set)
 		return (NULL);
 	while (ft_strchr(set, *s1) && *s1)

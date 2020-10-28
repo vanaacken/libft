@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   ft_strnstr.c                                       :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: niels <niels@student.codam.nl>               +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2020/10/27 22:53:51 by niels         #+#    #+#                 */
+/*   Updated: 2020/10/27 23:26:38 by niels         ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
+char	*ft_strnstr(const char *hay, const char *n, size_t len)
 {
 	unsigned int i;
 	unsigned int j;
@@ -8,16 +20,16 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	i = 0;
 	if (len == 0)
 		return (NULL);
-	if (!*needle)
-		return ((char *)haystack);
-	while (haystack[i] && i < len)
+	if (!*n)
+		return ((char *)hay);
+	while (hay[i] && i < len)
 	{
 		j = 0;
-		while (haystack[i + j] == needle[j] && i + j < len && haystack[i + j])
+		while (hay[i + j] == n[j] && i + j < len && hay[i + j])
 		{
 			j++;
-			if (!needle[j] && i + j < len)
-				return (&((char *)haystack)[i]);
+			if (!n[j] && i + j < len)
+				return (&((char *)hay)[i]);
 		}
 		i++;
 	}

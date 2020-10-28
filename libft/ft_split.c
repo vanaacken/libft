@@ -1,5 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   ft_split.c                                         :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: niels <niels@student.codam.nl>               +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2020/10/27 22:51:01 by niels         #+#    #+#                 */
+/*   Updated: 2020/10/27 23:49:02 by niels         ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
-#include <stdio.h>
 
 static unsigned int	count_words(char const *s, char c)
 {
@@ -24,7 +35,8 @@ static unsigned int	count_words(char const *s, char c)
 	return (count);
 }
 
-char	*make_substring(const char *s, const char *sp, unsigned int i, char c)
+static char			*make_substring(const char *s, const char *sp,
+					unsigned int i, char c)
 {
 	unsigned int len;
 
@@ -35,7 +47,7 @@ char	*make_substring(const char *s, const char *sp, unsigned int i, char c)
 	return ((char *)sp);
 }
 
-char			**ft_split(char const *s, char c)
+char				**ft_split(char const *s, char c)
 {
 	unsigned int	count;
 	char			**split;
@@ -52,11 +64,6 @@ char			**ft_split(char const *s, char c)
 		if (s[i] != c)
 		{
 			split[j] = make_substring(s, split[j], i, c);
-			if (!split[j])
-			{
-				free (split);
-				return (NULL);
-			}
 			i += ft_strlen(split[j]);
 			j++;
 			count--;
@@ -66,20 +73,3 @@ char			**ft_split(char const *s, char c)
 	}
 	return (split);
 }
-
-
-// int main(void)
-// {
-// 	char **split;
-// 	char str[22] = "Split is mijn biatch!";
-// 	split = ft_split(str, ' ');
-// 	int i;
-// 	i = 0;
-// 	while (i < 4)
-// 	{
-// 		printf("%s\n", split[i]);
-// 		i++;
-// 	}
-// 	free(split);
-// 	return (0);
-// }

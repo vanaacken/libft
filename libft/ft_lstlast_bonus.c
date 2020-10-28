@@ -1,19 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_putendl_fd.c                                    :+:    :+:            */
+/*   ft_lstlast_bonus.c                                 :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: niels <niels@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/10/27 22:50:42 by niels         #+#    #+#                 */
-/*   Updated: 2020/10/27 22:50:43 by niels         ########   odam.nl         */
+/*   Created: 2020/10/27 22:45:19 by niels         #+#    #+#                 */
+/*   Updated: 2020/10/28 09:32:22 by niels         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft_bonus.h"
 
-void	ft_putendl_fd(char const *c, int fd)
+t_list	*ft_lstlast(t_list *lst)
 {
-	ft_putstr_fd(c, fd);
-	ft_putchar_fd('\n', fd);
+	while (lst->next != NULL)
+	{
+		lst = lst->next;
+		if (lst->next == NULL)
+			return (lst);
+	}
+	return (lst);
 }
