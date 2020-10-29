@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_strmap.c                                        :+:    :+:            */
+/*   ft_memalloc_bonus.c                                :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: niels <niels@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/10/27 22:52:52 by niels         #+#    #+#                 */
-/*   Updated: 2020/10/28 12:15:02 by niels         ########   odam.nl         */
+/*   Created: 2020/10/27 22:48:06 by niels         #+#    #+#                 */
+/*   Updated: 2020/10/28 23:22:09 by niels         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strmap(char const *s, char (*f)(char))
+void	*ft_memalloc(size_t size)
 {
-	char			*dst;
-	unsigned int	i;
+	char *dst;
 
-	if (!(dst = ft_strnew(ft_strlen((char *)s))))
+	if (!size)
+		return (0);
+	dst = (char *)malloc(size);
+	if (!dst)
 		return (NULL);
-	i = 0;
-	while (s[i])
-	{
-		dst[i] = (*f)(s[i]);
-		i++;
-	}
-	dst[i] = '\0';
+	ft_bzero(dst, size);
 	return (dst);
 }

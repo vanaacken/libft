@@ -6,7 +6,7 @@
 /*   By: niels <niels@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/27 19:29:47 by niels         #+#    #+#                 */
-/*   Updated: 2020/10/28 09:32:28 by niels         ########   odam.nl         */
+/*   Updated: 2020/10/29 10:13:56 by niels         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,6 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *),
 	lst = lst->next;
 	while (lst)
 	{
-		if (!(element = ft_lstnew(f(lst->content))))
-		{
-			ft_lstclear(&lst, del);
-			ft_lstclear(&new_list, del);
-			break ;
-		}
 		lst = lst->next;
 		ft_lstadd_back(&new_list, element);
 	}

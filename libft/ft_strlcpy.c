@@ -6,7 +6,7 @@
 /*   By: niels <niels@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/27 22:52:46 by niels         #+#    #+#                 */
-/*   Updated: 2020/10/28 14:10:52 by niels         ########   odam.nl         */
+/*   Updated: 2020/10/29 15:36:49 by niels         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,14 @@
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
 	unsigned int i;
+	unsigned int len;
 
 	i = 0;
 	if (ft_strlen((char *)src) < dstsize)
-		ft_memcpy(dst, src, ft_strlen((char *)src) + 1);
+	{
+		len = ft_strlen((char *)src);
+		ft_memcpy(dst, src, (len + 1));
+	}
 	else if (dstsize != 0)
 	{
 		ft_memcpy(dst, src, dstsize - 1);

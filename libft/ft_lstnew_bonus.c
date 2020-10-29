@@ -6,7 +6,7 @@
 /*   By: niels <niels@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/27 22:47:15 by niels         #+#    #+#                 */
-/*   Updated: 2020/10/28 11:50:46 by niels         ########   odam.nl         */
+/*   Updated: 2020/10/29 16:34:51 by niels         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ t_list	*ft_lstnew(void *content)
 {
 	t_list	*list;
 
-	if (!(list = malloc(sizeof(t_list))))
+	list = malloc(sizeof(t_list));
+	if (!list)
 		return (NULL);
 	list->content = content;
 	list->next = NULL;

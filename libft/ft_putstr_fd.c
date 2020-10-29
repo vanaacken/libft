@@ -6,7 +6,7 @@
 /*   By: niels <niels@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/27 22:50:54 by niels         #+#    #+#                 */
-/*   Updated: 2020/10/27 22:50:55 by niels         ########   odam.nl         */
+/*   Updated: 2020/10/28 23:34:05 by niels         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_putstr_fd(char const *c, int fd)
 {
 	while (*c)
 	{
-		ft_putchar_fd(*c, fd);
+		write(fd, c, sizeof(char));
 		c++;
 	}
 }
