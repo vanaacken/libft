@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_lstnew_bonus.c                                  :+:    :+:            */
+/*   ft_lstclear.c                                      :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: niels <niels@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/10/27 22:47:15 by niels         #+#    #+#                 */
-/*   Updated: 2020/10/29 16:34:51 by niels         ########   odam.nl         */
+/*   Created: 2020/10/27 22:44:20 by niels         #+#    #+#                 */
+/*   Updated: 2020/10/30 14:08:18 by niels         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_bonus.h"
+#include "libft.h"
 
-t_list	*ft_lstnew(void *content)
+void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
-	t_list	*list;
+	t_list *temp;
 
-	list = malloc(sizeof(t_list));
-	if (!list)
-		return (NULL);
-	list->content = content;
-	list->next = NULL;
-	return (list);
+	while (*lst)
+	{
+		temp = (*lst)->next;
+		del(*lst);
+		*lst = temp;
+	}
 }

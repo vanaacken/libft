@@ -6,11 +6,11 @@
 /*   By: niels <niels@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/27 22:53:51 by niels         #+#    #+#                 */
-/*   Updated: 2020/10/28 12:30:20 by niels         ########   odam.nl         */
+/*   Updated: 2020/10/30 14:16:41 by niels         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdlib.h>
 
 char	*ft_strnstr(const char *hay, const char *n, size_t len)
 {

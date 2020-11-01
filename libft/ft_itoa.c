@@ -6,7 +6,7 @@
 /*   By: niels <niels@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/27 22:43:13 by niels         #+#    #+#                 */
-/*   Updated: 2020/10/28 23:20:38 by niels         ########   odam.nl         */
+/*   Updated: 2020/11/01 12:43:14 by niels         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,10 @@ char		*ft_itoa(int n)
 	int		len;
 	char	*number;
 
+	if (n == 0)
+		return (ft_strdup("0"));
+	if (n == -2147483648)
+		return (ft_strdup("-2147483648"));
 	len = num_len(n);
 	number = (char *)malloc(sizeof(char) * (len + 1));
 	if (!number)
@@ -44,10 +48,6 @@ char		*ft_itoa(int n)
 		number[0] = '-';
 		n = -n;
 	}
-	if (n == 0)
-		return (ft_strdup("0"));
-	if (n == -2147483648)
-		return (ft_strdup("-2147483648"));
 	number[len] = '\0';
 	while (n > 9)
 	{

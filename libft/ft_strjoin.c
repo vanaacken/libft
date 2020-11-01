@@ -6,7 +6,7 @@
 /*   By: niels <niels@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/27 22:52:37 by niels         #+#    #+#                 */
-/*   Updated: 2020/10/28 23:28:23 by niels         ########   odam.nl         */
+/*   Updated: 2020/11/01 13:32:10 by niels         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	join = (char *)malloc(sizeof(char) * (len + 1));
 	if (!join)
 		return (NULL);
-	ft_strlcat(join, (char *)s1, ft_strlen((char *)s1) + 1);
+	ft_strlcpy(join, (char *)s1, ft_strlen((char *)s1) + 1);
 	ft_strlcat(join, (char *)s2, len + 1);
 	return (join);
 }

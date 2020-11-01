@@ -1,26 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_lstiter_bonus.c                                 :+:    :+:            */
+/*   ft_lstdelone.c                                     :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: niels <niels@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/10/27 22:45:13 by niels         #+#    #+#                 */
-/*   Updated: 2020/10/28 09:32:17 by niels         ########   odam.nl         */
+/*   Created: 2020/10/27 22:45:03 by niels         #+#    #+#                 */
+/*   Updated: 2020/10/30 14:08:22 by niels         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_bonus.h"
+#include "libft.h"
 
-void	ft_lstiter(t_list *lst, void (*f)(void *))
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	if (lst && (f))
-	{
-		while (lst->next)
-		{
-			f(lst->content);
-			lst = lst->next;
-		}
-		f(lst->content);
-	}
+	del(lst->content);
+	free(lst);
 }

@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_lstclear_bonus.c                                :+:    :+:            */
+/*   ft_lstadd_back.c                                   :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: niels <niels@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/10/27 22:44:20 by niels         #+#    #+#                 */
-/*   Updated: 2020/10/28 09:32:03 by niels         ########   odam.nl         */
+/*   Created: 2020/10/27 22:44:03 by niels         #+#    #+#                 */
+/*   Updated: 2020/10/30 14:12:35 by niels         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_bonus.h"
+#include "libft.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void*))
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
 	t_list *temp;
 
-	while (*lst)
+	temp = *lst;
+	if (!*lst)
+		*lst = new;
+	else
 	{
-		temp = (*lst)->next;
-		del(*lst);
-		*lst = temp;
+		temp = ft_lstlast(*lst);
+		temp->next = new;
 	}
 }

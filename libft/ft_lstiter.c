@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_lstsize_bonus.c                                 :+:    :+:            */
+/*   ft_lstiter.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: niels <niels@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/10/27 22:47:44 by niels         #+#    #+#                 */
-/*   Updated: 2020/10/28 09:32:41 by niels         ########   odam.nl         */
+/*   Created: 2020/10/27 22:45:13 by niels         #+#    #+#                 */
+/*   Updated: 2020/10/30 14:08:28 by niels         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_bonus.h"
+#include "libft.h"
 
-int	ft_lstsize(t_list *lst)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	int size;
-
-	if (!lst)
-		return (0);
-	size = 1;
-	while (lst->next != NULL)
+	if (lst && (f))
 	{
-		size++;
-		lst = lst->next;
+		while (lst->next)
+		{
+			f(lst->content);
+			lst = lst->next;
+		}
+		f(lst->content);
 	}
-	return (size);
 }
