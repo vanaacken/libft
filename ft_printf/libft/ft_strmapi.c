@@ -1,24 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   get_next_line.c                                    :+:    :+:            */
+/*   ft_strmapi.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: niels <niels@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/10/29 16:48:04 by niels         #+#    #+#                 */
-/*   Updated: 2020/11/02 07:18:41 by nvan-aac      ########   odam.nl         */
+/*   Created: 2020/10/27 22:52:59 by niels         #+#    #+#                 */
+/*   Updated: 2020/10/28 23:29:02 by niels         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "libft.h"
 
-int	get_next_line(int fd, char **line)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	if (fd < 0 || !line || BUFFER_SIZE <= 0)
-		return (-1)
-	// return (1)	a line has been read
-	// return (-1)	an error happened
-	// return (0)	EOF has been reaced
+	char			*dst;
+	unsigned int	i;
 
-	return (1);
+	i = ft_strlen((char *)s);
+	dst = (char *)malloc(sizeof(char) * (i + 1));
+	if (!dst)
+		return (NULL);
+	i = 0;
+	while (s[i])
+	{
+		dst[i] = (*f)(i, s[i]);
+		i++;
+	}
+	dst[i] = '\0';
+	return (dst);
 }

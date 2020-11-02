@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   get_next_line.c                                    :+:    :+:            */
+/*   ft_lstlast.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: niels <niels@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/10/29 16:48:04 by niels         #+#    #+#                 */
-/*   Updated: 2020/11/02 07:18:41 by nvan-aac      ########   odam.nl         */
+/*   Created: 2020/10/27 22:45:19 by niels         #+#    #+#                 */
+/*   Updated: 2020/10/30 14:08:32 by niels         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "libft.h"
 
-int	get_next_line(int fd, char **line)
+t_list	*ft_lstlast(t_list *lst)
 {
-	if (fd < 0 || !line || BUFFER_SIZE <= 0)
-		return (-1)
-	// return (1)	a line has been read
-	// return (-1)	an error happened
-	// return (0)	EOF has been reaced
-
-	return (1);
+	while (lst->next != NULL)
+	{
+		lst = lst->next;
+		if (lst->next == NULL)
+			return (lst);
+	}
+	return (lst);
 }

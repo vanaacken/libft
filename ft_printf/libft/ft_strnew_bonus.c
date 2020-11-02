@@ -1,24 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   get_next_line.c                                    :+:    :+:            */
+/*   ft_strnew_bonus.c                                  :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: niels <niels@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/10/29 16:48:04 by niels         #+#    #+#                 */
-/*   Updated: 2020/11/02 07:18:41 by nvan-aac      ########   odam.nl         */
+/*   Created: 2020/10/28 12:26:56 by niels         #+#    #+#                 */
+/*   Updated: 2020/10/30 14:16:32 by niels         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include <stdlib.h>
 
-int	get_next_line(int fd, char **line)
+char	*ft_strnew(size_t size)
 {
-	if (fd < 0 || !line || BUFFER_SIZE <= 0)
-		return (-1)
-	// return (1)	a line has been read
-	// return (-1)	an error happened
-	// return (0)	EOF has been reaced
-
-	return (1);
+	return ((char *)malloc(sizeof(char) * (size + 1)));
 }

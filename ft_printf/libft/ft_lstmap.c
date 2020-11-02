@@ -1,24 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   get_next_line.c                                    :+:    :+:            */
+/*   ft_lstmap.c                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: niels <niels@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/10/29 16:48:04 by niels         #+#    #+#                 */
-/*   Updated: 2020/11/02 07:18:41 by nvan-aac      ########   odam.nl         */
+/*   Created: 2020/10/27 19:29:47 by niels         #+#    #+#                 */
+/*   Updated: 2020/10/30 14:08:36 by niels         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "libft.h"
 
-int	get_next_line(int fd, char **line)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *),
+		void (*del)(void *))
 {
-	if (fd < 0 || !line || BUFFER_SIZE <= 0)
-		return (-1)
-	// return (1)	a line has been read
-	// return (-1)	an error happened
-	// return (0)	EOF has been reaced
+	t_list *new_list;
+	t_list *element;
 
-	return (1);
+	if (!lst && !f)
+		return (NULL);
+	if (!(element = ft_lstnew(f(lst->content))))
+	{
+		ft_lstclear(&lst, del);
+		return (NULL);
+	}
+	new_list = element;
+	lst = lst->next;
+	while (lst)
+	{
+		lst = lst->next;
+		ft_lstadd_back(&new_list, element);
+	}
+	return (new_list);
 }

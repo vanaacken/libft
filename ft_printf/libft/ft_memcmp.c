@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   get_next_line.c                                    :+:    :+:            */
+/*   ft_memcmp.c                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: niels <niels@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/10/29 16:48:04 by niels         #+#    #+#                 */
-/*   Updated: 2020/11/02 07:18:41 by nvan-aac      ########   odam.nl         */
+/*   Created: 2020/10/27 22:48:55 by niels         #+#    #+#                 */
+/*   Updated: 2020/10/30 14:13:21 by niels         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include <stdlib.h>
 
-int	get_next_line(int fd, char **line)
+int		ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	if (fd < 0 || !line || BUFFER_SIZE <= 0)
-		return (-1)
-	// return (1)	a line has been read
-	// return (-1)	an error happened
-	// return (0)	EOF has been reaced
+	unsigned int i;
 
-	return (1);
+	if (s1 == s2)
+		return (0);
+	if (n == 0)
+		return (0);
+	i = 0;
+	while (i < n - 1 && ((unsigned char *)s1)[i] == ((unsigned char *)s2)[i])
+		i++;
+	return (((unsigned char *)s1)[i] - ((unsigned char *)s2)[i]);
 }

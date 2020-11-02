@@ -1,24 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   get_next_line.c                                    :+:    :+:            */
+/*   ft_strnstr.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: niels <niels@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/10/29 16:48:04 by niels         #+#    #+#                 */
-/*   Updated: 2020/11/02 07:18:41 by nvan-aac      ########   odam.nl         */
+/*   Created: 2020/10/27 22:53:51 by niels         #+#    #+#                 */
+/*   Updated: 2020/10/30 14:16:41 by niels         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include <stdlib.h>
 
-int	get_next_line(int fd, char **line)
+char	*ft_strnstr(const char *hay, const char *n, size_t len)
 {
-	if (fd < 0 || !line || BUFFER_SIZE <= 0)
-		return (-1)
-	// return (1)	a line has been read
-	// return (-1)	an error happened
-	// return (0)	EOF has been reaced
+	unsigned int i;
+	unsigned int j;
 
-	return (1);
+	i = 0;
+	if (!*n)
+		return ((char *)hay);
+	while (hay[i] && i < len)
+	{
+		j = 0;
+		while (hay[i + j] == n[j] && i + j < len && hay[i + j])
+		{
+			j++;
+			if (!n[j] && i + j < len)
+				return (&((char *)hay)[i]);
+		}
+		i++;
+	}
+	return (NULL);
 }

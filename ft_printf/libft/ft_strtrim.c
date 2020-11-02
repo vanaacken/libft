@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   get_next_line.c                                    :+:    :+:            */
+/*   ft_strtrim.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: niels <niels@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/10/29 16:48:04 by niels         #+#    #+#                 */
-/*   Updated: 2020/11/02 07:18:41 by nvan-aac      ########   odam.nl         */
+/*   Created: 2020/10/27 22:54:39 by niels         #+#    #+#                 */
+/*   Updated: 2020/10/27 23:42:10 by niels         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "libft.h"
 
-int	get_next_line(int fd, char **line)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	if (fd < 0 || !line || BUFFER_SIZE <= 0)
-		return (-1)
-	// return (1)	a line has been read
-	// return (-1)	an error happened
-	// return (0)	EOF has been reaced
+	size_t	len;
+	char	*new;
 
-	return (1);
+	if (!s1 || !set)
+		return (NULL);
+	while (ft_strchr(set, *s1) && *s1)
+		s1++;
+	len = ft_strlen((char *)s1);
+	while (len && ft_strchr(set, s1[len]))
+		len--;
+	new = ft_substr((char *)s1, 0, len + 1);
+	return (new);
 }
