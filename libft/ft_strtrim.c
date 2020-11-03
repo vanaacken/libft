@@ -6,7 +6,7 @@
 /*   By: niels <niels@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/27 22:54:39 by niels         #+#    #+#                 */
-/*   Updated: 2020/11/03 12:23:49 by niels         ########   odam.nl         */
+/*   Updated: 2020/11/03 12:52:48 by niels         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ char		*ft_strtrim(char const *s1, char const *set)
 	int		i;
 	char	*new;
 
+	if (!s1)
+		return (NULL);
 	start = 0;
 	while (is_set(s1[start], set) && s1[start])
 		start++;

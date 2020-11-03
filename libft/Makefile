@@ -16,7 +16,7 @@ HEADER	=	libft.h
 
 CC 		=	gcc
 CFLAGS	=	-Wall -Werror -Wextra
-OPTIONS = 	ar rc
+OPTIONS = 	ar rcs
 RM		=	rm -f
 
 ifdef WITH_BONUS
@@ -44,4 +44,4 @@ fclean: 	clean
 
 re:			fclean all
 
-.PHONY: all clean fclean re bonus
+.PHONY: all clean fclean re bonus %.o

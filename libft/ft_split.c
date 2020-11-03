@@ -6,7 +6,7 @@
 /*   By: niels <niels@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/27 22:51:01 by niels         #+#    #+#                 */
-/*   Updated: 2020/11/02 22:25:12 by niels         ########   odam.nl         */
+/*   Updated: 2020/11/03 17:00:39 by niels         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,17 +57,17 @@ static	char		**free_split(char **split, unsigned int index)
 	return (NULL);
 }
 
-char				**ft_split(char const *s, char c)
+static char			**do_split(char const *s, char c)
 {
 	unsigned int	count;
-	char			**split;
 	unsigned int	j;
+	char			**split;
 
-	j = 0;
 	count = count_words(s, c);
 	split = (char **)malloc(sizeof(char *) * (count + 1));
 	if (!split)
 		return (NULL);
+	j = 0;
 	while (*s != '\0' && count > 0)
 	{
 		if (*s != c)
@@ -83,4 +83,11 @@ char				**ft_split(char const *s, char c)
 	}
 	split[j] = NULL;
 	return (split);
+}
+
+char				**ft_split(char const *s, char c)
+{
+	if (!s || !c)
+		return (NULL);
+	return (do_split(s, c));
 }
