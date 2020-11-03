@@ -6,7 +6,7 @@
 /*   By: niels <niels@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/27 22:58:56 by niels         #+#    #+#                 */
-/*   Updated: 2020/10/30 13:38:43 by niels         ########   odam.nl         */
+/*   Updated: 2020/11/03 10:34:13 by niels         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void				*ft_memccpy(void *dst, const void *src, int c, size_t n);
 
 size_t				ft_strlcpy(char *dst, const char *src, size_t dstsize);
 
-size_t				ft_strlen(char *str);
+size_t				ft_strlen(const char *str);
 
 char				*ft_strdup(char *src);
 

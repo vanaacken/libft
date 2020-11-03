@@ -6,7 +6,7 @@
 /*   By: niels <niels@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/27 22:51:01 by niels         #+#    #+#                 */
-/*   Updated: 2020/10/29 13:52:04 by niels         ########   odam.nl         */
+/*   Updated: 2020/11/02 22:25:12 by niels         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,15 +35,14 @@ static unsigned int	count_words(char const *s, char c)
 	return (count);
 }
 
-static char			*make_substring(const char *s, const char *sp,
-					unsigned int i, char c)
+static char			*make_substring(const char *s, const char *sp, char c)
 {
 	unsigned int len;
 
 	len = 0;
-	while (s[i + len] != c && s[i + len])
+	while (s[len] != c && s[len])
 		len++;
-	sp = ft_substr(s, i, len);
+	sp = ft_substr(s, 0, len);
 	return ((char *)sp);
 }
 
@@ -62,27 +61,26 @@ char				**ft_split(char const *s, char c)
 {
 	unsigned int	count;
 	char			**split;
-	unsigned int	i;
 	unsigned int	j;
 
-	i = 0;
 	j = 0;
 	count = count_words(s, c);
 	split = (char **)malloc(sizeof(char *) * (count + 1));
 	if (!split)
 		return (NULL);
-	while (s[i] != '\0' && count > 0)
+	while (*s != '\0' && count > 0)
 	{
-		if (s[i] != c)
+		if (*s != c)
 		{
-			split[j] = make_substring(s, split[j], i, c);
+			split[j] = make_substring(s, split[j], c);
 			if (!split[j])
 				return (free_split(split, j));
-			i += ft_strlen(split[j]);
+			s += ft_strlen(split[j]);
 			j++;
 			count--;
 		}
-		i++;
+		s++;
 	}
+	split[j] = NULL;
 	return (split);
 }

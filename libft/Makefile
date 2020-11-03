@@ -15,7 +15,7 @@ BOBJS	=	$(BONUS:.c=.o)
 HEADER	=	libft.h
 
 CC 		=	gcc
-CFLAGS	=	-Wall -Werror -Wextra -fsanitize=address
+CFLAGS	=	-Wall -Werror -Wextra
 OPTIONS = 	ar rc
 RM		=	rm -f
 
