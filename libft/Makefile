@@ -32,10 +32,10 @@ $(NAME):	$(OBJ_FILES)
 
 %.o: %.c $(HEADER)
 			$(CC) -c $(CFLAGS) -o $@ $<
-			
+
 bonus:
 		$(MAKE) WITH_BONUS=1 all
-			
+
 clean:
 			$(RM) $(OBJS) ${BOBJS}
 
