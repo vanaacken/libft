@@ -6,14 +6,14 @@
 /*   By: niels <niels@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/27 22:41:03 by niels         #+#    #+#                 */
-/*   Updated: 2020/10/27 22:41:06 by niels         ########   odam.nl         */
+/*   Updated: 2020/11/03 12:48:28 by niels         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_atoi(char *str)
 {
-	int min_count;
-	int number;
+	int		min_count;
+	long	number;
 
 	number = 0;
 	min_count = 0;

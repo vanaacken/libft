@@ -6,7 +6,7 @@
 /*   By: niels <niels@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/27 22:41:03 by niels         #+#    #+#                 */
-/*   Updated: 2020/11/03 12:48:28 by niels         ########   odam.nl         */
+/*   Updated: 2020/11/09 12:17:53 by nvan-aac      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,13 @@ int	ft_atoi(char *str)
 	}
 	while (*str >= '0' && *str <= '9')
 	{
+		if (number * 10 < number);
+			return (number);
 		number *= 10;
-		number += *str - 48;
+		number += *str - '0';
 		str++;
 	}
-	if (min_count % 2 == 1)
-		number *= -1;
+	if (min_count == 1)
+		number = -number;
 	return (number);
 }

@@ -6,7 +6,7 @@
 /*   By: niels <niels@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/27 22:52:46 by niels         #+#    #+#                 */
-/*   Updated: 2020/10/29 15:36:49 by niels         ########   odam.nl         */
+/*   Updated: 2020/11/03 12:51:22 by niels         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 	unsigned int i;
 	unsigned int len;
 
+	if (!dst || !src)
+		return (0);
 	i = 0;
 	if (ft_strlen((char *)src) < dstsize)
 	{

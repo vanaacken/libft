@@ -15,8 +15,8 @@ BOBJS	=	$(BONUS:.c=.o)
 HEADER	=	libft.h
 
 CC 		=	gcc
-CFLAGS	=	-Wall -Werror -Wextra -fsanitize=address
-OPTIONS = 	ar rc
+CFLAGS	=	-Wall -Werror -Wextra
+OPTIONS = 	ar rcs
 RM		=	rm -f
 
 ifdef WITH_BONUS
@@ -32,10 +32,10 @@ $(NAME):	$(OBJ_FILES)
 
 %.o: %.c $(HEADER)
 			$(CC) -c $(CFLAGS) -o $@ $<
-			
+
 bonus:
 		$(MAKE) WITH_BONUS=1 all
-			
+
 clean:
 			$(RM) $(OBJS) ${BOBJS}
 
@@ -44,4 +44,4 @@ fclean: 	clean
 
 re:			fclean all
 
-.PHONY: all clean fclean re bonus
+.PHONY: all clean fclean re bonus %.o

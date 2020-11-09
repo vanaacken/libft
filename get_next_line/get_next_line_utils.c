@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   get_next_line_utils.c                              :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: nvan-aac <nvan-aac@student.codam.nl>         +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2020/11/09 16:11:07 by nvan-aac      #+#    #+#                 */
+/*   Updated: 2020/11/09 16:13:28 by nvan-aac      ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "get_next_line.h"
 
 size_t		ft_strlen(const char *s)
@@ -12,60 +24,58 @@ size_t		ft_strlen(const char *s)
 	return (i);
 }
 
-void		*ft_memmove(void *dst, const void *src, size_t len)
+static void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	char *d;
-	char *s;
+	unsigned int i;
 
-	d = (char *)dst;
-	s = (char *)src;
-	if (dst == src)
-		return (dst);
-	if (s < d)
+	if (!dst && !src)
+		return (NULL);
+	if (dst > src)
 	{
-		while (len--)
-			*(d + len) = *(s + len);
-		return (dst);
+		while (len > 0)
+		{
+			len--;
+			((char *)dst)[len] = ((char *)src)[len];
+		}
 	}
-	while (len--)
-		*d++ = *s++;
+	else
+	{
+		i = 0;
+		while (i < len)
+		{
+			((char *)dst)[i] = ((char *)src)[i];
+			i++;
+		}
+	}
 	return (dst);
 }
 
-char		*join_str(char const *s1, char const *s2)
+char		*ft_strjoin(char const *s1, char const *s2)
 {
-	size_t	s1_len;
-	size_t	s2_len;
-	size_t	stot_len;
-	char	*rtn;
+	size_t			len;
+	char			*join;
 
 	if (!s1 && !s2)
-		return (0);
-	s1_len = ft_strlen((char *)s1);
-	s2_len = ft_strlen((char *)s2);
-	stot_len = s1_len + s2_len + 1;
-	rtn = malloc(sizeof(char) * stot_len);
-	if (!rtn)
-		return (0);
-	ft_memmove(rtn, s1, s1_len);
-	ft_memmove(rtn + s1_len, s2, s2_len);
-	rtn[stot_len - 1] = '\0';
-	free((char *)s1);
-	return (rtn);
+		return (NULL);
+	len = ft_strlen((char *)s1) + ft_strlen((char *)s2);
+	join = (char *)malloc(sizeof(char) * (len + 1));
+	if (!join)
+		return (NULL);
+	ft_memmove(join, s1, ft_strlen(s1));
+	ft_memmove((join + ft_strlen(s1)), s2, ft_strlen(s2));
+	join[len] = '\0';
+	return (join);
 }
 
-int			has_return(char *str)
+int			newline_isset(char *s)
 {
-	int i;
-
-	i = 0;
-	if (!str)
+	if (!s)
 		return (0);
-	while (str[i])
+	while (*s)
 	{
-		if (str[i] == '\n')
+		if (*s == '\n')
 			return (1);
-		i++;
+		s++;
 	}
 	return (0);
 }
