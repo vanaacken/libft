@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   get_next_line.c                                    :+:    :+:            */
+/*   get_next_line_bonus.c                              :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: nvan-aac <nvan-aac@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/09 16:10:59 by nvan-aac      #+#    #+#                 */
-/*   Updated: 2020/11/10 17:57:05 by niels         ########   odam.nl         */
+/*   Updated: 2020/11/10 17:55:39 by niels         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 static char	*read_line(char *s)
 {
@@ -67,22 +67,22 @@ static char	*new_save(char *saved_line)
 int			get_next_line(int fd, char **line)
 {
 	char		buffer[BUFFER_SIZE + 1];
-	static char	*saved_line;
+	static char	*saved_line[1024];
 	int			bytes_read;
 
-	if (fd < 0 || !line || BUFFER_SIZE <= 0)
+	if (fd < 0 || fd > 1024 || !line || BUFFER_SIZE <= 0)
 		return (-1);
 	bytes_read = 1;
-	while (newline_isset(saved_line) == 0 && bytes_read > 0)
+	while (newline_isset(saved_line[fd]) == 0 && bytes_read > 0)
 	{
 		bytes_read = read(fd, buffer, BUFFER_SIZE);
 		if (bytes_read == -1)
 			return (-1);
 		buffer[bytes_read] = '\0';
-		saved_line = ft_strjoin(saved_line, buffer);
+		saved_line[fd] = ft_strjoin(saved_line[fd], buffer);
 	}
-	*line = read_line(saved_line);
-	saved_line = new_save(saved_line);
+	*line = read_line(saved_line[fd]);
+	saved_line[fd] = new_save(saved_line[fd]);
 	if (bytes_read == 0)
 		return (0);
 	return (1);
