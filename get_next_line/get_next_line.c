@@ -6,29 +6,29 @@
 /*   By: nvan-aac <nvan-aac@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/09 16:10:59 by nvan-aac      #+#    #+#                 */
-/*   Updated: 2020/11/10 17:57:05 by niels         ########   odam.nl         */
+/*   Updated: 2020/11/10 20:44:57 by niels         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-static char	*read_line(char *s)
+static char	*read_line(char *saved_line)
 {
 	int		i;
 	char	*line;
 
 	i = 0;
-	if (!s)
+	if (!saved_line)
 		return (0);
-	while (s[i] && s[i] != '\n')
+	while (saved_line[i] && saved_line[i] != '\n')
 		i++;
 	line = (char *)malloc(sizeof(char) * (i + 1));
 	if (!line)
 		return (NULL);
 	i = 0;
-	while (s[i] && s[i] != '\n')
+	while (saved_line[i] && saved_line[i] != '\n')
 	{
-		line[i] = s[i];
+		line[i] = saved_line[i];
 		i++;
 	}
 	line[i] = '\0';
