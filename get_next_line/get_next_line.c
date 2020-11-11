@@ -6,7 +6,7 @@
 /*   By: nvan-aac <nvan-aac@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/09 16:10:59 by nvan-aac      #+#    #+#                 */
-/*   Updated: 2020/11/10 20:44:57 by niels         ########   odam.nl         */
+/*   Updated: 2020/11/11 14:28:59 by niels         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,8 @@ int			get_next_line(int fd, char **line)
 			return (-1);
 		buffer[bytes_read] = '\0';
 		saved_line = ft_strjoin(saved_line, buffer);
+		if (!saved_line)
+			return (-1);
 	}
 	*line = read_line(saved_line);
 	saved_line = new_save(saved_line);

@@ -6,7 +6,7 @@
 /*   By: nvan-aac <nvan-aac@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/09 16:11:07 by nvan-aac      #+#    #+#                 */
-/*   Updated: 2020/11/10 18:23:24 by niels         ########   odam.nl         */
+/*   Updated: 2020/11/11 13:25:54 by niels         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ char		*ft_strjoin(char const *s1, char const *s2)
 		return (NULL);
 	ft_memmove(join, s1, ft_strlen(s1));
 	ft_memmove((join + ft_strlen(s1)), s2, ft_strlen(s2));
+	free((char *)s1);
 	join[len] = '\0';
 	return (join);
 }
