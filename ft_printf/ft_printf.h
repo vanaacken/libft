@@ -6,7 +6,7 @@
 /*   By: niels <niels@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/10 09:40:44 by niels         #+#    #+#                 */
-/*   Updated: 2020/11/12 15:54:15 by niels         ########   odam.nl         */
+/*   Updated: 2020/11/16 11:26:02 by nvan-aac      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ typedef	struct	s_struct
 	char	*ret;
 	int		len;
 	int		width;
+	int		flag;
+	int		justification;
 	int		precision;
 	int		precision_width;
 	int		precision_parsing;
@@ -32,8 +34,6 @@ typedef	struct	s_struct
 	int		plus;
 	int		space;
 	int		sp_len;
-	int		is_int;
-
 }				t_struct;
 
 #endif

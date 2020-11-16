@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   get_next_line.c                                    :+:    :+:            */
+/*   get_next_line_bonus.c                              :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: niels <niels@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/13 14:01:24 by niels         #+#    #+#                 */
-/*   Updated: 2020/11/16 13:18:40 by nvan-aac      ########   odam.nl         */
+/*   Updated: 2020/11/16 13:21:46 by nvan-aac      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 static int	free_save(char *s)
 {
@@ -43,24 +43,24 @@ static char	*split_line(char **line, char *saved_line)
 int			get_next_line(int fd, char **line)
 {
 	char		buffer[BUFFER_SIZE + 1];
-	static char	*saved_line;
+	static char	*saved_line[MAX_FD];
 	int			bytes_read;
 
-	if (fd < 0 || !line || BUFFER_SIZE <= 0)
-		return (free_save(saved_line));
+	if (fd < 0 || fd > 1024 || !line || BUFFER_SIZE <= 0)
+		return (free_save(saved_line[fd]));
 	bytes_read = 1;
-	while (newline_isset(saved_line) == 0 && bytes_read > 0)
+	while (newline_isset(saved_line[fd]) == 0 && bytes_read > 0)
 	{
 		bytes_read = read(fd, buffer, BUFFER_SIZE);
 		if (bytes_read == -1)
-			return (free_save(saved_line));
+			return (free_save(saved_line[fd]));
 		buffer[bytes_read] = '\0';
-		saved_line = ft_strjoin(saved_line, buffer);
-		if (!saved_line)
+		saved_line[fd] = ft_strjoin(saved_line[fd], buffer);
+		if (!saved_line[fd])
 			return (-1);
 	}
-	saved_line = split_line(line, saved_line);
-	if (!saved_line)
+	saved_line[fd] = split_line(line, saved_line[fd]);
+	if (!saved_line[fd])
 		return (-1);
 	if (bytes_read == 0)
 		return (0);

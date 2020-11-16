@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   get_next_line_utils.c                              :+:    :+:            */
+/*   get_next_line_utils_bonus.c                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: nvan-aac <nvan-aac@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/11/09 16:11:07 by nvan-aac      #+#    #+#                 */
-/*   Updated: 2020/11/16 13:22:00 by nvan-aac      ########   odam.nl         */
+/*   Created: 2020/11/16 13:06:31 by nvan-aac      #+#    #+#                 */
+/*   Updated: 2020/11/16 13:22:11 by nvan-aac      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 size_t		ft_strlen(const char *s)
 {

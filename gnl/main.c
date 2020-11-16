@@ -33,7 +33,13 @@ int			main(int argc, char **argv)
 			printf("%d: %s\n", count, line);
 			count++;
 			free(line);
+				if (return_value == 0)
+			{
+				fprintf(stderr, "Return value is: %d.\n", return_value);
+				return (0);
+			}
 		}
+		close(fd);
 	}
     return (0);
 }

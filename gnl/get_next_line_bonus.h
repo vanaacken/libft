@@ -1,20 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   get_next_line.h                                    :+:    :+:            */
+/*   get_next_line_bonus.h                              :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: niels <niels@student.codam.nl>               +#+                     */
+/*   By: nvan-aac <nvan-aac@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/11/13 14:05:09 by niels         #+#    #+#                 */
-/*   Updated: 2020/11/16 13:27:22 by nvan-aac      ########   odam.nl         */
+/*   Created: 2020/11/16 13:06:40 by nvan-aac      #+#    #+#                 */
+/*   Updated: 2020/11/16 13:27:32 by nvan-aac      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#ifndef GET_NEXT_LINE_BONUS_H
+# define GET_NEXT_LINE_BONUS_H
 
 # include <stdlib.h>
 # include <unistd.h>
+
+# define MAX_FD 1024
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 128
