@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   get_next_line_bonus.h                              :+:    :+:            */
+/*   get_next_line.h                                    :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: niels <niels@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/11/10 17:53:29 by niels         #+#    #+#                 */
-/*   Updated: 2020/11/13 09:17:19 by niels         ########   odam.nl         */
+/*   Created: 2020/11/13 14:05:09 by niels         #+#    #+#                 */
+/*   Updated: 2020/11/15 19:12:18 by niels         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_BONUS_H
-# define GET_NEXT_LINE_BONUS_H
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
 # include <stdlib.h>
 # include <unistd.h>
@@ -19,12 +19,13 @@
 # define MAX_FD 1024
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE  128
+#  define BUFFER_SIZE 128
 # endif
 
-int					get_next_line(int fd, char **line);
-int					newline_isset(char *s);
-size_t				ft_strlen(const char *s);
-char				*ft_strjoin(const char *s1, const char *s2);
+int		get_next_line(int fd, char **line);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
+int			newline_isset(char *s);
+char		*ft_strjoin(char const *s1, char const *s2);
+size_t		ft_strlen(const char *s);
 
 #endif

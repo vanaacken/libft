@@ -6,7 +6,7 @@
 /*   By: nvan-aac <nvan-aac@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/09 16:10:59 by nvan-aac      #+#    #+#                 */
-/*   Updated: 2020/11/11 14:28:59 by niels         ########   odam.nl         */
+/*   Updated: 2020/11/13 09:48:54 by niels         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,11 @@ static char	*new_save(char *saved_line)
 		return (0);
 	}
 	new_save = malloc(sizeof(char) * (ft_strlen(saved_line) - i + 1));
+	if (!new_save)
+	{
+		free(saved_line);
+		return (NULL);
+	}
 	i++;
 	j = 0;
 	while (saved_line[i + j])
@@ -64,6 +69,12 @@ static char	*new_save(char *saved_line)
 	return (new_save);
 }
 
+static int	free_return(char *s)
+{
+	free(s);
+	return (-1);
+}
+
 int			get_next_line(int fd, char **line)
 {
 	char		buffer[BUFFER_SIZE + 1];
@@ -71,13 +82,13 @@ int			get_next_line(int fd, char **line)
 	int			bytes_read;
 
 	if (fd < 0 || !line || BUFFER_SIZE <= 0)
-		return (-1);
+		return (free_return(saved_line));
 	bytes_read = 1;
 	while (newline_isset(saved_line) == 0 && bytes_read > 0)
 	{
 		bytes_read = read(fd, buffer, BUFFER_SIZE);
 		if (bytes_read == -1)
-			return (-1);
+			return (free_return(saved_line));
 		buffer[bytes_read] = '\0';
 		saved_line = ft_strjoin(saved_line, buffer);
 		if (!saved_line)
@@ -89,3 +100,9 @@ int			get_next_line(int fd, char **line)
 		return (0);
 	return (1);
 }
+
+// free bij return() bytes_read == -1
+// mis 1 malloc protection
+// buffer als static en saved line initialize;
+// unsigned char
+// max open 1024 FD

@@ -6,7 +6,7 @@
 /*   By: nvan-aac <nvan-aac@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/09 16:11:07 by nvan-aac      #+#    #+#                 */
-/*   Updated: 2020/11/13 08:34:32 by niels         ########   odam.nl         */
+/*   Updated: 2020/11/13 14:44:02 by niels         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,4 +79,29 @@ int			newline_isset(char *s)
 		s++;
 	}
 	return (0);
+}
+
+char	*ft_substr(char const *s, unsigned int start, size_t len)
+{
+	char	*str;
+	size_t	i;
+
+	i = 0;
+	if (!s)
+		return (NULL);
+	if (ft_strlen((char *)s) < start)
+		len = 0;
+	else if (ft_strlen(((char *)(s + start))) < len)
+		len = ft_strlen(((char *)(s + start)));
+	str = (char *)malloc(sizeof(char) * (len + 1));
+	if (!str)
+		return (NULL);
+	i = 0;
+	while (len > i)
+	{
+		str[i] = s[start + i];
+		i++;
+	}
+	str[i] = '\0';
+	return (str);
 }

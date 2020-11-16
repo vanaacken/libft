@@ -6,7 +6,7 @@
 /*   By: niels <niels@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/10 17:54:50 by niels         #+#    #+#                 */
-/*   Updated: 2020/11/10 17:54:58 by niels         ########   odam.nl         */
+/*   Updated: 2020/11/11 15:10:56 by niels         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ char		*ft_strjoin(char const *s1, char const *s2)
 	ft_memmove(join, s1, ft_strlen(s1));
 	ft_memmove((join + ft_strlen(s1)), s2, ft_strlen(s2));
 	join[len] = '\0';
+	free((char *)s1);
 	return (join);
 }
 
