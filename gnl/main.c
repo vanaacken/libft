@@ -9,10 +9,11 @@
 int			main(int argc, char **argv)
 {
     int     fd;
+	int		fd2;
     int     count;
     int     return_value;
     char    *line;
-    if (argc > 1)
+    if (argc > 2)
 	{
 		fd = open(argv[1], O_RDONLY);
 		if (fd == -1)
@@ -33,13 +34,16 @@ int			main(int argc, char **argv)
 			printf("%d: %s\n", count, line);
 			count++;
 			free(line);
-				if (return_value == 0)
+			return_value = get_next_line(fd2, &line);
+			if (return_value == -1)
 			{
 				fprintf(stderr, "Return value is: %d.\n", return_value);
 				return (0);
 			}
+			printf("%d: %s\n", count, line);
+			count++;
+			free(line);
 		}
-		close(fd);
 	}
     return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: nvan-aac <nvan-aac@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/09 16:11:07 by nvan-aac      #+#    #+#                 */
-/*   Updated: 2020/11/16 13:22:00 by nvan-aac      ########   odam.nl         */
+/*   Updated: 2020/11/19 14:47:58 by niels         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,10 @@ char		*ft_strjoin(char const *s1, char const *s2)
 	len = ft_strlen((char *)s1) + ft_strlen((char *)s2);
 	join = (char *)malloc(sizeof(char) * (len + 1));
 	if (!join)
+	{
+		free((char *)s1);
 		return (NULL);
+	}
 	ft_memmove(join, s1, ft_strlen(s1));
 	ft_memmove((join + ft_strlen(s1)), s2, ft_strlen(s2));
 	free((char *)s1);
@@ -79,29 +82,4 @@ int			newline_isset(char *s)
 		s++;
 	}
 	return (0);
-}
-
-char		*ft_substr(char const *s, unsigned int start, size_t len)
-{
-	char	*str;
-	size_t	i;
-
-	i = 0;
-	if (!s)
-		return (NULL);
-	if (ft_strlen((char *)s) < start)
-		len = 0;
-	else if (ft_strlen(((char *)(s + start))) < len)
-		len = ft_strlen(((char *)(s + start)));
-	str = (char *)malloc(sizeof(char) * (len + 1));
-	if (!str)
-		return (NULL);
-	i = 0;
-	while (len > i)
-	{
-		str[i] = s[start + i];
-		i++;
-	}
-	str[i] = '\0';
-	return (str);
 }

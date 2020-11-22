@@ -6,7 +6,7 @@
 /*   By: niels <niels@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/10 09:40:44 by niels         #+#    #+#                 */
-/*   Updated: 2020/11/16 11:26:02 by nvan-aac      ########   odam.nl         */
+/*   Updated: 2020/11/17 16:40:10 by niels         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 # include <stdarg.h>
 # include "libft/libft.h"
 
+int	ft_printf(const char *format, ...);
+
 typedef	struct	s_struct
 {
 	char	*ret;
@@ -26,6 +28,7 @@ typedef	struct	s_struct
 	int		flag;
 	int		justification;
 	int		precision;
+	int		size;
 	int		precision_width;
 	int		precision_parsing;
 	int		converter;

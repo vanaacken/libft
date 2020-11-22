@@ -6,7 +6,7 @@
 /*   By: niels <niels@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/28 15:55:26 by niels         #+#    #+#                 */
-/*   Updated: 2020/11/02 13:36:45 by nvan-aac      ########   odam.nl         */
+/*   Updated: 2020/11/18 13:14:13 by niels         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@
 		void	va_copy(va_list dest, va_list src);
 		void	va_end(va_list ap);
 */
-// [FLAG_FIELD][WIDTH_FIELD][PRECISION_FIELD][LENGTH_FIELD][TYPE_FIELD]
+// [FLAG_FIELD][WIDTH_FIELD][PRECISION_FIELD][SIZE_FIELD][TYPE_FIELD]
 
 
 

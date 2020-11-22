@@ -2,11 +2,12 @@
 
 int	main(void)
 {
+  static char *s;
 	int number = 42;
-	printf("abcdef%dghij\n", number);
-    printf(" %-10d \n", number);
-    printf("[%-15.10d ]\n", number);  
-    printf(" %#x \n", number);
+	//printf("abcdef%dghij\n", number);
+    printf("[%s\n", s);
+  //  printf("[%-15.10d ]\n", number);  
+   // printf(" %#x \n", number);
 
 }
 
