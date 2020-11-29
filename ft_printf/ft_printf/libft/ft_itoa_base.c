@@ -6,7 +6,7 @@
 /*   By: nvan-aac <nvan-aac@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/23 14:25:43 by nvan-aac      #+#    #+#                 */
-/*   Updated: 2020/11/23 17:40:05 by nvan-aac      ########   odam.nl         */
+/*   Updated: 2020/11/25 11:24:42 by niels         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,15 @@ static int	ft_abs(int n)
 {
 	if (n < 0)
 		n = -n;
-	return(n);
+	return (n);
 }
 
-char		*ft_itoa_base(unsigned int n, int base, char *set)
+char		*ft_itoa_base(unsigned long long int n, int base, char *set)
 {
 	char					*str;
 	int						size;
 	int						flag;
-	unsigned int		tmp;
+	unsigned long long int	tmp;
 
 	flag = 0;
 	size = 0;

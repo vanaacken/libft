@@ -6,7 +6,7 @@
 /*   By: niels <niels@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/27 22:58:56 by niels         #+#    #+#                 */
-/*   Updated: 2020/11/23 17:41:22 by nvan-aac      ########   odam.nl         */
+/*   Updated: 2020/11/25 12:11:36 by niels         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void				ft_bzero(void *s, size_t n);
 void				*ft_calloc(size_t count, size_t size);
 
 int					ft_atoi(char *str);
-char				*ft_itoa_base(unsigned int n, int base, char *set);
+char				*ft_itoa_base(unsigned long long n, int base, char *set);
 int					ft_toupper(int c);
 int					ft_tolower(int c);
 char				**ft_split(char const *s, char c);
